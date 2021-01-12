@@ -15,8 +15,8 @@ namespace AsteroidGameStrelnikov
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Form game_form = new Form();
-            game_form.Width = 800;
-            game_form.Height = 600;
+            game_form.Width = 850;
+            game_form.Height = 650;
 
             game_form.Show();
 

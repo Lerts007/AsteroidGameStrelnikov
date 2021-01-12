@@ -15,26 +15,26 @@ namespace AsteroidGameStrelnikov
             _Size = Size;
         }
 
-        public void Draw(Graphics g)
+        public virtual void Draw(Graphics g)
         {
             g.DrawEllipse(Pens.White,
                 _Position.X, _Position.Y,
                 _Size.Width, _Size.Height);
         }
 
-        public void Update()
+        public virtual void Update()
         {
             _Position.X += _Direction.X;
             _Position.Y += _Direction.Y;
 
-            if (_Position.X < 0)
+            if (_Position.X < 5)
                 _Direction.X *= -1;
-            if (_Position.Y < 0)
+            if (_Position.Y < _Size.Height)
                 _Direction.Y *= -1;
 
-            if (_Position.X < Game.Width - _Size.Width)
+            if (_Position.X > Game.Width - 50)
                 _Direction.X *= -1;
-            if (_Position.Y < Game.Height - _Size.Height)
+            if (_Position.Y > Game.Height - 75)
                 _Direction.Y *= -1;
         }
     }

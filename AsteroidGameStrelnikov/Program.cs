@@ -20,6 +20,10 @@ namespace AsteroidGameStrelnikov
 
             game_form.Show();
 
+            Game.Initialize(game_form);
+            Game.Load();
+            Game.Draw();
+
             Application.Run();
         }
     }

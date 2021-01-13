@@ -12,6 +12,8 @@ namespace AsteroidGameStrelnikov
 
         private static VizualObject[] __GameObjects;
 
+        
+
         public static int Width { get; set; }
 
         public static int Height { get; set; }
@@ -43,19 +45,22 @@ namespace AsteroidGameStrelnikov
             const int visual_objects_count = 30;
             __GameObjects = new VizualObject[visual_objects_count];
 
+            Random r = new Random();
+
+
             for (int i = 0; i < __GameObjects.Length / 2; i++)
             {
                 __GameObjects[i] = new VizualObject(
-                    new Point(600, i * 20),
-                    new Point(15 - i, 20 - i),
-                    new Size(20, 20));
+                    new Point(r.Next(0, Width - 50), r.Next(0, Height - 75)),
+                    new Point(r.Next(1, 20), r.Next(1, 20)),
+                    new Size(r.Next(20, 40), r.Next(20, 40)));
             }
             for (int i = __GameObjects.Length / 2; i < __GameObjects.Length; i++)
             {
                 __GameObjects[i] = new Star(
-                    new Point(600, (int)(i / 2.0 * 20)),
-                    new Point(-i, 0),
-                    10);
+                    new Point(r.Next(0, Width - 50), r.Next(0, Height - 50)),
+                    new Point(i, 0),
+                    40);
             }
         }
 

@@ -1,0 +1,33 @@
+﻿using AsteroidGameStrelnikov.VisualObjects;
+using System.Drawing;
+
+
+namespace AsteroidGameStrelnikov.VIsualObjects
+{
+    internal class Asteroid : CollisionObject
+    {
+        public int Power { get; set; } = 10;
+
+        public Asteroid(Point Position, Point Direction, int Size)
+            : base(Position, Direction, new Size(Size, Size), Properties.Resources.Asteroid)
+        {
+
+        }
+        public override void Update()
+        {
+            _Position.X -= _Direction.X;
+            _Position.Y -= _Direction.Y;
+
+            if (_Position.X < 0)
+                _Direction.X *= -1;
+            if (_Position.Y < 0)
+                _Direction.Y *= -1;
+
+            if (_Position.X > Game.Width - 45)
+                _Direction.X *= -1;
+            if (_Position.Y > Game.Height - 70)
+                _Direction.Y *= -1;
+        }
+
+    }
+}
